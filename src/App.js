@@ -11,8 +11,8 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<StepOne />} />
           <Route path="/2" element={<StepTwo />} />

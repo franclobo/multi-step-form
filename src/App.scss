@@ -34,6 +34,10 @@
         color: #fff;
         font-size: 14px;
         padding: 14px;
+        &.active {
+          background-color: #00ffff;
+          color: #000;
+        }
       }
       .line {
         display: flex;
@@ -163,6 +167,10 @@ input:checked + .slider:before {
     &:hover {
       border: solid 1px #2b4ce0;
       cursor: pointer;
+    }
+    &.selected {
+      border: solid 1px #2b4ce0;
+      background-color: #e5e5e5;
     }
     .plan__content {
       display: flex;

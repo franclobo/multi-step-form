@@ -1,7 +1,16 @@
-import React from 'react'
-import { Form, Button } from 'react-bootstrap'
+import React from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function StepOne() {
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate('/2');
+  };
+
   return (
     <section className="form">
       <div className="header">
@@ -10,23 +19,23 @@ function StepOne() {
           Please provide your, name email address, and phone number.
         </p>
       </div>
-      <Form className="form_content">
+      <Form className="form_content" onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicName">
           <Form.Label>Neme</Form.Label>
-          <Form.Control type="text" placeholder="Your name" />
+          <Form.Control type="text" placeholder="Your name" required />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control type="email" placeholder="Enter email" required />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicPhone">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="text" placeholder="e.g. +123 456 7890" />
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control type="text" placeholder="e.g. +123 456 7890" required />
         </Form.Group>
         <Button variant="primary" type="submit" className="next_step">
           Next Step
@@ -36,4 +45,4 @@ function StepOne() {
   );
 }
 
-export default StepOne
+export default StepOne;

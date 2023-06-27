@@ -1,6 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function StepThree() {
+
+  const [addOns, setAddOns] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleAddOnsSelect = (event) => {
+    const { checked, id } = event.target;
+    const selectAddOn = {
+      id,
+      price: checked ? calculatePrice(id) : 0,
+    };
+
+    if (checked) {
+      setAddOns((prevAddOns) => [...prevAddOns, selectAddOn]);
+    } else {
+      setAddOns((prevAddOns) => prevAddOns.filter((addOn) => addOn.id !== selectAddOn.id));
+    }
+  };
+
+  const goBack = () => {
+    navigate('/2');
+  };
+
+  const goToNextStep = () => {
+    const selection = {
+      plan: 'Arcade',
+      price: 4.99,
+      addOns: addOns,
+    };
+
+    localStorage.setItem('selection', JSON.stringify(selection));
+
+    navigate('/4');
+  };
+
+  const calculatePrice = (addOnId) => {
+    if (addOnId === "check1") {
+      const selectedCycle = "Monthly";
+      const selectedPlan = "Arcade";
+
+      // Obtener la selección del paso 2 del localStorage
+      const selection = JSON.parse(localStorage.getItem("selection"));
+      const selectedCycleFromStepTwo = selection.cycle;
+      const selectedPlanFromStepTwo = selection.plan;
+
+      if (
+        selectedCycleFromStepTwo === "Monthly" &&
+        selectedPlanFromStepTwo === "Arcade"
+      ) {
+        return "$1";
+      } else if (
+        selectedCycleFromStepTwo === "Yearly" &&
+        selectedPlanFromStepTwo === "Arcade"
+      ) {
+        return "$" + 1 * 12;
+      }
+    }
+
+    // Por defecto, retornar 0
+    return 0;
+  };
+
+
   return (
     <section className="form">
       <div className="header">
@@ -14,7 +79,7 @@ function StepThree() {
           <li className="add-ons__item">
             <div className="check">
               <input type="checkbox" id="check1" />
-              <label for="check1">
+              <label htmlFor="check1">
                 <h2>Online service</h2>
                 <p>Access to multiple games</p>
               </label>
@@ -24,7 +89,7 @@ function StepThree() {
           <li className="add-ons__item">
             <div className="check">
               <input type="checkbox" id="check1" />
-              <label for="check1">
+              <label htmlFor="check1">
                 <h2>Larger storage</h2>
                 <p>Extra 1TB of cloud save</p>
               </label>
@@ -34,7 +99,7 @@ function StepThree() {
           <li className="add-ons__item">
             <div className="check">
               <input type="checkbox" id="check1" />
-              <label for="check1">
+              <label htmlFor="check1">
                 <h2>Customizable Profile</h2>
                 <p>Custom theme on your profile</p>
               </label>
@@ -44,8 +109,12 @@ function StepThree() {
         </ul>
       </div>
       <div className="nav__btn">
-        <button className="btn btn--primary">Go Back</button>
-        <button className="btn btn--secondary">Next Step</button>
+        <Button variant="light" className="btn btn--prev" onClick={goBack}>
+          Go Back
+        </Button>
+        <Button variant="primary" className="btn btn--next" onClick={goToNextStep}>
+          Next Step
+        </Button>
       </div>
     </section>
   );

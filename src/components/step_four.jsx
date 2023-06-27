@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function StepFour() {
+  const selection = JSON.parse(localStorage.getItem('selection'));
+  const addOns = selection.addOns;
+
   return (
     <section className="form">
       <div className="header">
@@ -16,19 +20,21 @@ function StepFour() {
             <li className="summary__item">
               <div className="summary__item__info">
                 <h3 className="summary__item__title">Arcade (Monthly)</h3>
-                <Link to="/2" className="summary__item__edit">Change</Link>
+                <Link to="/2" className="summary__item__edit">
+                  Change
+                </Link>
               </div>
               <p className="summary__item__price">$4.99/mo</p>
             </li>
             <div className="summary__item__divider"></div>
-            <li className="summary__item">
-              <p className="summary__item__add-ons">Online Service</p>
-              <p className="summary__item__add-ons__price">+$1/mo</p>
-            </li>
-            <li className="summary__item">
-              <p className="summary__item__add-ons">Larger storage</p>
-              <p className="summary__item__add-ons__price">+$2/mo</p>
-            </li>
+            {addOns.map((addOn) => (
+              <li className="summary__item" key={addOn.id}>
+                <p className="summary__item__add-ons">Online Service</p>
+                <p className="summary__item__add-ons__price">
+                  {addOn.price}/mo
+                </p>
+              </li>
+            ))}
           </div>
           <li className="total__item">
             <h3 className="summary__item__total">Total (per month)</h3>
@@ -37,11 +43,15 @@ function StepFour() {
         </ul>
       </div>
       <div className="nav__btn">
-        <button className="btn btn--primary">Go Back</button>
-        <button className="btn btn--secondary">Confirm</button>
+        <Button variant="light" className="btn btn--prev">
+          Go Back
+        </Button>
+        <Button variant="primary" className="btn btn--next">
+          Confirm
+        </Button>
       </div>
     </section>
-  )
+  );
 }
 
 export default StepFour;
