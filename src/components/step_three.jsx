@@ -8,61 +8,50 @@ function StepThree() {
 
   const navigate = useNavigate();
 
-  const handleAddOnsSelect = (event) => {
-    const { checked, id } = event.target;
-    const selectAddOn = {
-      id,
-      price: checked ? calculatePrice(id) : 0,
-    };
-
-    if (checked) {
-      setAddOns((prevAddOns) => [...prevAddOns, selectAddOn]);
-    } else {
-      setAddOns((prevAddOns) => prevAddOns.filter((addOn) => addOn.id !== selectAddOn.id));
-    }
-  };
-
   const goBack = () => {
     navigate('/2');
   };
 
   const goToNextStep = () => {
-    const selection = {
-      plan: 'Arcade',
-      price: 4.99,
-      addOns: addOns,
-    };
+    const selection = JSON.parse(localStorage.getItem('selection'));
+    const selectedAddOns = addOns.map((addOn) => ({
+      name: addOn,
+      price: getAddOnPrice(addOn, selection.cycle),
+    }));
+
+    selection.addOns = selectedAddOns;
 
     localStorage.setItem('selection', JSON.stringify(selection));
 
     navigate('/4');
   };
 
-  const calculatePrice = (addOnId) => {
-    if (addOnId === "check1") {
-      const selectedCycle = "Monthly";
-      const selectedPlan = "Arcade";
 
-      // Obtener la selección del paso 2 del localStorage
-      const selection = JSON.parse(localStorage.getItem("selection"));
-      const selectedCycleFromStepTwo = selection.cycle;
-      const selectedPlanFromStepTwo = selection.plan;
+  const handleAddOns = (event) => {
+    const addOn = event.target.value;
+    const addOnsCopy = [...addOns];
 
-      if (
-        selectedCycleFromStepTwo === "Monthly" &&
-        selectedPlanFromStepTwo === "Arcade"
-      ) {
-        return "$1";
-      } else if (
-        selectedCycleFromStepTwo === "Yearly" &&
-        selectedPlanFromStepTwo === "Arcade"
-      ) {
-        return "$" + 1 * 12;
-      }
+    if (addOnsCopy.includes(addOn)) {
+      const index = addOnsCopy.indexOf(addOn);
+      addOnsCopy.splice(index, 1);
+    } else {
+      addOnsCopy.push(addOn);
     }
 
-    // Por defecto, retornar 0
-    return 0;
+    setAddOns(addOnsCopy);
+  };
+
+  const getAddOnPrice = (addOn, price) => {
+    switch (addOn) {
+      case 'Online service':
+        return price === 'monthly' ? 1 : 10;
+      case 'Larger storage':
+        return price === 'monthly' ? 2 : 20;
+      case 'Customizable Profile':
+        return price === 'monthly' ? 2 : 20;
+      default:
+        return '';
+    }
   };
 
 
@@ -78,7 +67,7 @@ function StepThree() {
         <ul className="add-ons__list">
           <li className="add-ons__item">
             <div className="check">
-              <input type="checkbox" id="check1" />
+              <input type="checkbox" id="check1" onChange={handleAddOns} value="Online service" />
               <label htmlFor="check1">
                 <h2>Online service</h2>
                 <p>Access to multiple games</p>
@@ -88,8 +77,8 @@ function StepThree() {
           </li>
           <li className="add-ons__item">
             <div className="check">
-              <input type="checkbox" id="check1" />
-              <label htmlFor="check1">
+              <input type="checkbox" id="check2" onChange={handleAddOns} value="Larger storage" />
+              <label htmlFor="check2">
                 <h2>Larger storage</h2>
                 <p>Extra 1TB of cloud save</p>
               </label>
@@ -98,8 +87,8 @@ function StepThree() {
           </li>
           <li className="add-ons__item">
             <div className="check">
-              <input type="checkbox" id="check1" />
-              <label htmlFor="check1">
+              <input type="checkbox" id="check3" onChange={handleAddOns} value="Customizable Profile" />
+              <label htmlFor="check3">
                 <h2>Customizable Profile</h2>
                 <p>Custom theme on your profile</p>
               </label>

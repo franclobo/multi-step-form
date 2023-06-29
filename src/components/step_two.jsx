@@ -32,6 +32,7 @@ function StepTwo() {
       plan: selectedPlan,
       price: selectedPrice,
       cycle: selectedCycle,
+      addOns: [],
     };
 
     // Guardar la selección en localStorage
@@ -48,11 +49,11 @@ function StepTwo() {
   const getPrice = (plan, cycle) => {
     switch (plan) {
       case "Arcade":
-        return cycle === "monthly" ? "$4.99" : "$49.99";
+        return cycle === "monthly" ? 4.99 : 49.99;
       case "Advanced":
-        return cycle === "monthly" ? "$9.99" : "$99.99";
+        return cycle === "monthly" ? 9.99 : 99.99;
       case "Pro":
-        return cycle === "monthly" ? "$19.99" : "$199.99";
+        return cycle === "monthly" ? 19.99 : 199.99;
       default:
         return "";
     }
@@ -63,7 +64,7 @@ function StepTwo() {
       <div className="header">
         <h2 className="title">Select your plan</h2>
         <p className="subtitle">
-          You ahve the option to monthly or year billing.
+          You have the option to monthly or year billing.
         </p>
       </div>
       <div className="plan">
@@ -78,9 +79,9 @@ function StepTwo() {
             <div className="plan__content">
               <h3 className="plan__title">Arcade</h3>
               {selectedBilling === "Monthly" ? (
-                <p className="plan__price monthly">$4.99</p>
+                <p className="plan__price monthly">$4.99/mo</p>
               ) : (
-                <p className="plan__price yearly">$49.99</p>
+                <p className="plan__price yearly">$49.99/yr</p>
               )}
             </div>
           </li>
@@ -94,9 +95,9 @@ function StepTwo() {
             <div className="plan__content">
               <h3 className="plan__title">Advanced</h3>
               {selectedBilling === "Monthly" ? (
-                <p className="plan__price monthly">$9.99</p>
+                <p className="plan__price monthly">$9.99/mo</p>
               ) : (
-                <p className="plan__price yearly">$99.99</p>
+                <p className="plan__price yearly">$99.99/yr</p>
               )}
             </div>
           </li>
@@ -108,9 +109,9 @@ function StepTwo() {
             <div className="plan__content">
               <h3 className="plan__title">Pro</h3>
               {selectedBilling === "Monthly" ? (
-                <p className="plan__price monthly">$19.99</p>
+                <p className="plan__price monthly">$19.99/mo</p>
               ) : (
-                <p className="plan__price yearly">$199.99</p>
+                <p className="plan__price yearly">$199.99/yr</p>
               )}
             </div>
           </li>

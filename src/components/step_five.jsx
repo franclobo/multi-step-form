@@ -3,6 +3,11 @@ import CheckMark from '../assets/images/icon-checkmark.svg';
 import ThankYou from '../assets/images/icon-thank-you.svg';
 
 function StepFive() {
+
+  setTimeout(() => {
+    window.location.href = '/';
+  }, 10000);
+
   return (
     <section className="tks">
       <div className="header">
