@@ -4,9 +4,9 @@ import ThankYou from '../assets/images/icon-thank-you.svg';
 
 function StepFive() {
 
-  setTimeout(() => {
-    window.location.href = '/';
-  }, 10000);
+  //setTimeout(() => {
+  //  window.location.href = '/';
+  //}, 10000);
 
   return (
     <section className="tks">

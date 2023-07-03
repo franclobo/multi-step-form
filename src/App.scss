@@ -350,14 +350,17 @@ input:checked + .slider:before {
 }
 
 .tks {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  .check__subtitle {
-    width: 50%;
-    text-align: center;
+  align-self: center;
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .check__subtitle {
+      width: 50%;
+      text-align: center;
+    }
   }
 }
 
