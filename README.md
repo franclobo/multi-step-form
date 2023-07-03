@@ -34,8 +34,19 @@ Users should be able to:
 
 ### Screenshot
 
-![mobile version](image.png)
-![desktop version](image-1.png)
+| Desktop version | Mobile version |
+|---|---|
+| ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/801d6143-deba-48ab-8254-123868da274d) | ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/53d6d451-861d-416d-8211-ee76c01a71b9) |
+| ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/8148e9ca-17da-44dd-a470-9f1834f2d99e) | ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/74acde3d-96f4-478b-9cb8-085a65faa2ef) |
+| ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/cb91fc63-6b04-4bc5-a9e5-0a1e771c929b) | ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/ce417022-dea7-4704-9175-3ce1aa5e37d7) |
+| ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/11a92765-12a9-4934-a2a3-8d068aaf846c) | ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/ee824790-a000-4cdf-b5ff-d23ca16a7f3a) |
+| ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/1bb0dbab-a26e-401a-9fc2-640dd40e2f87) | ![imagen](https://github.com/franclobo/multi-step-form/assets/58642949/a0aa6afe-8fc1-45f5-af54-89d94c4b3f2b) |
+ 
+
+
+
+
+
 
 ### Links
 
