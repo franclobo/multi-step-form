@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Multi Step Form](https://your-solution-url.com)
+- Live Site URL: [Multi Step Form](https://github.com/franclobo/multi-step-form)
 
 ## My process
 
@@ -50,60 +50,86 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [React Bootstrap](https://react-bootstrap.netlify.app/) - CSS framework
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I learn how to use some Ract Hooks like useNavigate, to navigate between pages, and useLocation, to get the current location. Also, I learn how to use the useState hook to manage the state of the form and the useEffect hook to update the state of the form when the user changes the location.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function Navbar() {
+
+  const [step, setStep] = useState(1);
+  const location = useLocation();
+
+  useEffect(() => {
+    const currentPage =
+      location.pathname === "/"
+        ? 1
+        : parseInt(location.pathname.replace("/", ""));
+    if (currentPage !== step) {
+      setStep(currentPage);
+    }
+  }, [location.pathname, step]);
+
+  return (
+    <div className="navbar">
+      <ul className="list">
+        <li className="item">
+          <h1 className={`number ${step === 1 ? "active" : ""}`}>1</h1>
+          <div className="line">
+            <p className="step">STEP 1</p>
+            <h2 className="action">YOUR INFO</h2>
+          </div>
+        </li>
+        <li className="item">
+          <h1 className={`number ${step === 2 ? "active" : ""}`}>2</h1>
+          <div className="line">
+            <p className="step">STEP 2</p>
+            <h2 className="action">SELECT PLAN</h2>
+          </div>
+        </li>
+        <li className="item">
+          <h1 className={`number ${step === 3 ? "active" : ""}`}>3</h1>
+          <div className="line">
+            <p className="step">STEP 3</p>
+            <h2 className="action">ADD - ONS</h2>
+          </div>
+        </li>
+        <li className="item">
+          <h1 className={`number ${step === 4 || step === 5 ? "active" : ""}`}>4</h1>
+          <div className="line">
+            <p className="step">STEP 4</p>
+            <h2 className="action">SUMMARY</h2>
+          </div>
+        </li>
+      </ul>
+    </div>
+  );
 }
+
+export default Navbar
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I want to fix some calculation bugs with the add-ons and the summary page. Also, I want to add some animations to the form.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [React hooks](https://react.dev/reference/react) - This helped me to understand how to use the hooks in React and figure out how to use them in my project.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Portfolio](https://borja-lobato-francisco-potfolio.netlify.app/)
+- Frontend Mentor - [@franclobo](https://www.frontendmentor.io/profile/franclobo)
+- Twitter - [@Pancho2788](https://twitter.com/Pancho2788)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+I want to acknowledge to Frontend Mentor team. I'm really grateful for the opportunity to learn and improve my skills. I'm looking forward to the next challenge.
