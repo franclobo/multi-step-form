@@ -22,7 +22,7 @@ body {
   }
   @media (max-width: 768px) {
     position: relative;
-    top: 210px;
+    top: 390px;
   }
 }
 
@@ -385,7 +385,7 @@ input:checked + .slider:before {
     gap: 20px;
     background-color: #fff;
     position: relative;
-    top: 100px;
+    top: 260px;
     width: 100vw;
     padding: 20px;
   }
@@ -474,7 +474,7 @@ input:checked + .slider:before {
     gap: 20px;
     background-color: #fff;
     position: relative;
-    top: 100px;
+    top: 260px;
     width: 100vw;
     .next_step {
       justify-self: flex-end;
