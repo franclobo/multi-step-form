@@ -20,10 +20,6 @@ body {
   a {
     color: hsl(228, 45%, 44%);
   }
-  @media (max-width: 768px) {
-    position: relative;
-    top: 390px;
-  }
 }
 
 .App {
@@ -266,8 +262,13 @@ input:checked + .slider:before {
 
 .nav__btn {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-top: 50px;
+  .nav__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .add-ons {
@@ -380,14 +381,24 @@ input:checked + .slider:before {
   }
   .nav__btn {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-content: center;
     gap: 20px;
     background-color: #fff;
     position: relative;
-    top: 260px;
+    top: 100px;
     width: 100vw;
     padding: 20px;
+    .nav__buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: space-around;
+    }
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   .add-ons {
     .add-ons__list {
@@ -469,12 +480,13 @@ input:checked + .slider:before {
 
   .form_footer{
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
     background-color: #fff;
     position: relative;
-    top: 260px;
+    top: 100px;
     width: 100vw;
     .next_step {
       justify-self: flex-end;
@@ -491,9 +503,26 @@ input:checked + .slider:before {
     position: absolute;
     top: 100px;
     width: 90vw;
-    .check__subtitle {
-      width: 100%;
+    .content {
+      .check__subtitle {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .attribution {
+      font-size: 11px;
       text-align: center;
+      a {
+        color: hsl(228, 45%, 44%);
+      }
     }
   }
 }

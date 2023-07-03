@@ -20,21 +20,6 @@ function App() {
           <Route path="/4" element={<StepFour />} />
           <Route path="/5" element={<StepFive />} />
         </Routes>
-        <div class="attribution">
-          Challenge by{" "}
-          <a
-            href="https://www.frontendmentor.io?ref=challenge"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Frontend Mentor
-          </a>
-          . Coded by{" "}
-          <a href="https://www.linkedin.com/in/francisco-borja-lobato/">
-            Francisco J. Borja
-          </a>
-          .
-        </div>
       </Router>
     </div>
   );
