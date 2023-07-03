@@ -1,10 +1,42 @@
 @import "~bootstrap/scss/bootstrap";
 
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #cbf5f5;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+  @media (max-width: 768px) {
+    position: relative;
+    top: 210px;
+  }
+}
+
 .App {
-  margin: 20px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   justify-content: flex-start;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #cbf5f5;
+  }
 }
 
 .navbar {
@@ -60,6 +92,19 @@
       }
     }
   }
+  @media (max-width: 768px) {
+    background-image: url(./assets/images/bg-sidebar-mobile.svg);
+    align-content: center;
+    .list {
+      display: flex;
+      flex-direction: row;
+    }
+    .line,
+    .step,
+    .action {
+      display: none;
+    }
+  }
 }
 
 .form {
@@ -67,6 +112,18 @@
   flex-direction: column;
   justify-content: flex-start;
   margin: 20px 50px;
+  @media (max-width: 768px) {
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 300px;
+    top: 100px;
+  }
 }
 
 .form_content {
@@ -303,6 +360,141 @@ input:checked + .slider:before {
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .plan {
+    .plan__list {
+      grid-template-columns: 1fr;
+      .plan__item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        .plan__content {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .nav__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    position: relative;
+    top: 100px;
+    width: 100vw;
+    padding: 20px;
+  }
+  .add-ons {
+    .add-ons__list {
+      .add-ons__item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .check {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 150px;
+            font-size: small;
+            h2 {
+              font-size: medium;
+              font-weight: 700;
+              color: #000;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .summary {
+    .summary__list {
+      .summary__items {
+        .summary__item {
+          gap: 20px;
+          .check {
+            gap: 20px;
+          }
+        }
+      }
+      .total__item {
+
+        .summary__item__total,
+        .summary__item__total__price {
+          font-size: medium;
+          font-weight: 700;
+          color: #000;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    border: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    .form_header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      background-color: #f1efef;
+      position: relative;
+      top: 100px;
+      width: 100vw;
+      .next_step {
+        justify-self: flex-end;
+        margin: 30px;
+      }
+    }
+  }
+
+  .form_footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    position: relative;
+    top: 100px;
+    width: 100vw;
+    .next_step {
+      justify-self: flex-end;
+      margin: 30px;
+    }
+  }
+
+  .tks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 100px;
+    width: 90vw;
+    .check__subtitle {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
 
 
 

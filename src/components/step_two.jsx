@@ -61,87 +61,89 @@ function StepTwo() {
 
   return (
     <section className="form">
-      <div className="header">
-        <h2 className="title">Select your plan</h2>
-        <p className="subtitle">
-          You have the option to monthly or year billing.
-        </p>
-      </div>
-      <div className="plan">
-        <ul className="plan__list">
-          <li
-            className={`plan__item ${
-              selectedPlan === "Arcade" ? "selected" : ""
+      <div className="content">
+        <div className="header">
+          <h2 className="title">Select your plan</h2>
+          <p className="subtitle">
+            You have the option to monthly or year billing.
+          </p>
+        </div>
+        <div className="plan">
+          <ul className="plan__list">
+            <li
+              className={`plan__item ${
+                selectedPlan === "Arcade" ? "selected" : ""
+              }`}
+              onClick={() => handlePlanSelect("Arcade")}
+            >
+              <img src={Arcade} alt="Arcade" className="plan__icon" />
+              <div className="plan__content">
+                <h3 className="plan__title">Arcade</h3>
+                {selectedBilling === "Monthly" ? (
+                  <p className="plan__price monthly">$4.99/mo</p>
+                ) : (
+                  <p className="plan__price yearly">$49.99/yr</p>
+                )}
+              </div>
+            </li>
+            <li
+              className={`plan__item ${
+                selectedPlan === "Advanced" ? "selected" : ""
+              }`}
+              onClick={() => handlePlanSelect("Advanced")}
+            >
+              <img src={Advanced} alt="Advanced" className="plan__icon" />
+              <div className="plan__content">
+                <h3 className="plan__title">Advanced</h3>
+                {selectedBilling === "Monthly" ? (
+                  <p className="plan__price monthly">$9.99/mo</p>
+                ) : (
+                  <p className="plan__price yearly">$99.99/yr</p>
+                )}
+              </div>
+            </li>
+            <li
+              className={`plan__item ${selectedPlan === "Pro" ? "selected" : ""}`}
+              onClick={() => handlePlanSelect("Pro")}
+            >
+              <img src={Pro} alt="Pro" className="plan__icon" />
+              <div className="plan__content">
+                <h3 className="plan__title">Pro</h3>
+                {selectedBilling === "Monthly" ? (
+                  <p className="plan__price monthly">$19.99/mo</p>
+                ) : (
+                  <p className="plan__price yearly">$199.99/yr</p>
+                )}
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div className="plan__btn">
+          <button
+            className={`btn btn--primary ${
+              selectedBilling === "Monthly" ? "selected" : ""
             }`}
-            onClick={() => handlePlanSelect("Arcade")}
+            onClick={() => setSelectedBilling("Monthly")}
           >
-            <img src={Arcade} alt="Arcade" className="plan__icon" />
-            <div className="plan__content">
-              <h3 className="plan__title">Arcade</h3>
-              {selectedBilling === "Monthly" ? (
-                <p className="plan__price monthly">$4.99/mo</p>
-              ) : (
-                <p className="plan__price yearly">$49.99/yr</p>
-              )}
-            </div>
-          </li>
-          <li
-            className={`plan__item ${
-              selectedPlan === "Advanced" ? "selected" : ""
+            Monthly
+          </button>
+          <label className="switch">
+            <input type="checkbox" onChange={handleBillingSelect} />
+            <span
+              className={`slider round ${
+                selectedBilling === "Yearly" ? "Monthly" : ""
+              }`}
+            ></span>
+          </label>
+          <button
+            className={`btn btn--primary ${
+              selectedBilling === "Yearly" ? "selected" : ""
             }`}
-            onClick={() => handlePlanSelect("Advanced")}
+            onClick={() => setSelectedBilling("Yearly")}
           >
-            <img src={Advanced} alt="Advanced" className="plan__icon" />
-            <div className="plan__content">
-              <h3 className="plan__title">Advanced</h3>
-              {selectedBilling === "Monthly" ? (
-                <p className="plan__price monthly">$9.99/mo</p>
-              ) : (
-                <p className="plan__price yearly">$99.99/yr</p>
-              )}
-            </div>
-          </li>
-          <li
-            className={`plan__item ${selectedPlan === "Pro" ? "selected" : ""}`}
-            onClick={() => handlePlanSelect("Pro")}
-          >
-            <img src={Pro} alt="Pro" className="plan__icon" />
-            <div className="plan__content">
-              <h3 className="plan__title">Pro</h3>
-              {selectedBilling === "Monthly" ? (
-                <p className="plan__price monthly">$19.99/mo</p>
-              ) : (
-                <p className="plan__price yearly">$199.99/yr</p>
-              )}
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div className="plan__btn">
-        <button
-          className={`btn btn--primary ${
-            selectedBilling === "Monthly" ? "selected" : ""
-          }`}
-          onClick={() => setSelectedBilling("Monthly")}
-        >
-          Monthly
-        </button>
-        <label className="switch">
-          <input type="checkbox" onChange={handleBillingSelect} />
-          <span
-            className={`slider round ${
-              selectedBilling === "Yearly" ? "Monthly" : ""
-            }`}
-          ></span>
-        </label>
-        <button
-          className={`btn btn--primary ${
-            selectedBilling === "Yearly" ? "selected" : ""
-          }`}
-          onClick={() => setSelectedBilling("Yearly")}
-        >
-          Yearly
-        </button>
+            Yearly
+          </button>
+        </div>
       </div>
       <div className="nav__btn">
         <Button variant="light" className="btn btn--prev" onClick={goToPreviousStep}>
