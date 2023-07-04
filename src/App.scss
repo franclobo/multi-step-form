@@ -4,6 +4,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #cbf5f5;
+  justify-content: center;
+  align-items: center;
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -25,7 +27,10 @@ body {
 .App {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  justify-content: flex-start;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 20px;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -38,11 +43,11 @@ body {
 .navbar {
   background-image: url(./assets/images/bg-sidebar-desktop.svg);
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 578px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   padding: 20px 0;
   .list {
@@ -106,7 +111,7 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 20px 50px;
   @media (max-width: 768px) {
     border-radius: 20px;
