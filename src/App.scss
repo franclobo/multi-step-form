@@ -6,6 +6,7 @@ body {
   background-color: #cbf5f5;
   justify-content: center;
   align-items: center;
+  padding: 0 200px;
   @media (max-width: 768px) {
     justify-content: center;
   }
@@ -30,7 +31,7 @@ body {
   justify-content: center;
   background-color: #fff;
   border-radius: 20px;
-  margin: 20px 100px;
+  margin: 20px;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
