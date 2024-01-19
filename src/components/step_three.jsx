@@ -4,6 +4,8 @@ import { Button } from 'react-bootstrap';
 import Footer from './footer';
 
 function StepThree() {
+  const selection = JSON.parse(localStorage.getItem("selection"));
+  const cycle = selection.cycle;
 
   const [addOns, setAddOns] = useState([]);
 
@@ -14,7 +16,7 @@ function StepThree() {
   };
 
   const goToNextStep = () => {
-    const selection = JSON.parse(localStorage.getItem('selection'));
+
     const selectedAddOns = addOns.map((addOn) => ({
       name: addOn,
       price: getAddOnPrice(addOn, selection.cycle),
@@ -45,11 +47,11 @@ function StepThree() {
   const getAddOnPrice = (addOn, price) => {
     switch (addOn) {
       case 'Online service':
-        return price === 'monthly' ? 1 : 10;
+        return price === 'Monthly' ? 1 : 10;
       case 'Larger storage':
-        return price === 'monthly' ? 2 : 20;
+        return price === 'Monthly' ? 2 : 20;
       case 'Customizable Profile':
-        return price === 'monthly' ? 2 : 20;
+        return price === 'Monthly' ? 2 : 20;
       default:
         return '';
     }
@@ -81,7 +83,10 @@ function StepThree() {
                     <p>Access to multiple games</p>
                   </label>
                 </div>
-                <p className="add-ons__price">+$1/mo</p>
+                <p className="add-ons__price">
+                  +${cycle === "Monthly" ? 1 : 10}/
+                  {cycle === "Monthly" ? "mo" : "yr"}
+                </p>
               </li>
               <li className="add-ons__item">
                 <div className="check">
@@ -96,7 +101,10 @@ function StepThree() {
                     <p>Extra 1TB of cloud save</p>
                   </label>
                 </div>
-                <p className="add-ons__price">+$2/mo</p>
+                <p className="add-ons__price">
+                  +${cycle === "Monthly" ? 2 : 20}/
+                  {cycle === "Monthly" ? "mo" : "yr"}
+                </p>
               </li>
               <li className="add-ons__item">
                 <div className="check">
@@ -111,7 +119,10 @@ function StepThree() {
                     <p>Custom theme on your profile</p>
                   </label>
                 </div>
-                <p className="add-ons__price">+$2/mo</p>
+                <p className="add-ons__price">
+                  +${cycle === "Monthly" ? 2 : 20}/
+                  {cycle === "Monthly" ? "mo" : "yr"}
+                </p>
               </li>
             </ul>
           </div>

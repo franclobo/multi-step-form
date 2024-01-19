@@ -5,9 +5,9 @@ import Footer from './footer';
 
 function StepFive() {
 
-  setTimeout(() => {
-    window.location.href = '/';
-  }, 10000);
+  //setTimeout(() => {
+  //  window.location.href = '/';
+  //}, 10000);
 
   return (
     <>
